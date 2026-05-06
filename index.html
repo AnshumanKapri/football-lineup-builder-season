@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Football Lineup Builder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand-lockup" aria-label="Football Command Center">
+        <div class="brand-mark">26</div>
+        <div>
+          <p class="eyebrow">Season Simulator</p>
+          <h1>Football Command Center</h1>
+        </div>
+      </div>
+
+      <div class="auth-box" aria-label="Account controls">
+        <label>
+          <span>Username</span>
+          <input id="usernameInput" type="text" placeholder="coach" maxlength="20" autocomplete="username" />
+        </label>
+        <label>
+          <span>Password</span>
+          <input id="passwordInput" type="password" placeholder="6+ chars" autocomplete="current-password" />
+        </label>
+        <button id="loginButton" class="ghost-button" type="button">Login</button>
+        <button id="registerButton" class="ghost-button" type="button">Register</button>
+        <button id="logoutButton" class="ghost-button" type="button" hidden>Logout</button>
+        <strong id="authStatus" class="auth-status">Guest</strong>
+      </div>
+
+      <div class="multiplayer-box" aria-label="Multiplayer room controls">
+        <label>
+          <span>Room</span>
+          <input id="roomInput" type="text" value="DREAMXI" maxlength="16" autocomplete="off" />
+        </label>
+        <button id="joinRoomButton" class="ghost-button" type="button">Join</button>
+        <button id="copyRoomButton" class="ghost-button icon-button" type="button" title="Copy room link" aria-label="Copy room link">Link</button>
+        <strong id="roomStatus" class="room-status">Offline</strong>
+      </div>
+
+      <div class="metric-strip" aria-live="polite">
+        <div class="metric">
+          <span>Remaining Budget</span>
+          <strong id="budgetValue">1500M</strong>
+        </div>
+        <div class="metric">
+          <span>Team Total OVR</span>
+          <strong id="teamOvrValue">--</strong>
+        </div>
+        <div class="metric">
+          <span>Lineup</span>
+          <strong id="lineupCountValue">0/11</strong>
+        </div>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <section class="market-panel tool-panel" aria-labelledby="marketTitle">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Transfer Market</p>
+            <h2 id="marketTitle">Player Database</h2>
+          </div>
+          <span id="playerCount" class="count-pill">0</span>
+        </div>
+
+        <div class="market-controls">
+          <label>
+            <span>Search</span>
+            <input id="searchInput" type="search" placeholder="Name" autocomplete="off" />
+          </label>
+          <label>
+            <span>Position</span>
+            <select id="positionFilter">
+              <option value="ALL">All</option>
+            </select>
+          </label>
+          <label>
+            <span>Status</span>
+            <select id="statusFilter">
+              <option value="ALL">All</option>
+              <option value="Real Star">Real Star</option>
+              <option value="Icon">Icon</option>
+            </select>
+          </label>
+        </div>
+
+        <div id="playerGrid" class="player-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="pitch-panel" aria-labelledby="pitchTitle">
+        <div class="pitch-toolbar">
+          <div>
+            <p class="eyebrow">Squad Builder</p>
+            <h2 id="pitchTitle">Pitch View</h2>
+          </div>
+          <div class="toolbar-actions">
+            <label class="formation-picker">
+              <span>Formation</span>
+              <select id="formationSelect"></select>
+            </label>
+            <button id="clearLineupButton" class="ghost-button" type="button">Clear XI</button>
+          </div>
+        </div>
+
+        <div class="pitch-frame">
+          <div id="pitch" class="pitch" aria-label="Lineup pitch"></div>
+        </div>
+
+        <section class="season-review" aria-labelledby="reviewTitle">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Results</p>
+              <h2 id="reviewTitle">Season Review</h2>
+            </div>
+            <span id="scoreBadge" class="score-badge">0 pts</span>
+          </div>
+          <div id="reviewContent" class="review-content"></div>
+        </section>
+      </section>
+
+      <aside class="side-rail">
+        <section class="tool-panel manager-panel" aria-labelledby="managerTitle">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Staff Room</p>
+              <h2 id="managerTitle">Manager Marketplace</h2>
+            </div>
+          </div>
+          <div id="managerGrid" class="manager-grid"></div>
+        </section>
+
+        <section class="tool-panel sim-panel" aria-labelledby="simTitle">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Competition Hub</p>
+              <h2 id="simTitle">Simulate Season</h2>
+            </div>
+          </div>
+          <div class="sim-readiness">
+            <div>
+              <span>Manager</span>
+              <strong id="managerStatus">Required</strong>
+            </div>
+            <div>
+              <span>Base Rating</span>
+              <strong id="baseRatingValue">--</strong>
+            </div>
+            <div>
+              <span>League Average</span>
+              <strong>85</strong>
+            </div>
+          </div>
+          <button id="simulateButton" class="primary-button" type="button">Simulate Season</button>
+        </section>
+      </aside>
+    </main>
+
+    <a class="photo-credit" href="https://commons.wikimedia.org/wiki/File:Cristiano_Ronaldo_0876.jpg" target="_blank" rel="noopener">
+      Photo: YantsImages / CC BY-SA 4.0
+    </a>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
