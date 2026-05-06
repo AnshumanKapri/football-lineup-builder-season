@@ -48,9 +48,8 @@ body::after {
 body::before {
   z-index: -2;
   background:
-    linear-gradient(90deg, rgba(7, 9, 13, 0.96) 0%, rgba(7, 9, 13, 0.78) 38%, rgba(7, 9, 13, 0.16) 100%),
-    linear-gradient(180deg, rgba(7, 9, 13, 0.22) 0%, rgba(7, 9, 13, 0.94) 100%),
-    url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Cristiano_Ronaldo_0876.jpg") center top / cover no-repeat;
+    linear-gradient(180deg, rgba(7, 9, 13, 0.90) 0%, rgba(7, 9, 13, 0.82) 30%, rgba(7, 9, 13, 0.76) 60%, rgba(7, 9, 13, 0.90) 100%),
+    url("https://wallpaperaccess.com/full/3578278.jpg") center center / cover no-repeat;
   filter: saturate(1.12) contrast(1.05);
 }
 
